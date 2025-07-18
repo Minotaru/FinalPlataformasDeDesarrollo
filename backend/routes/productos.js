@@ -86,6 +86,9 @@ router.delete('/:id', verificarToken, esAdmin, async (req, res) => {
         res.json({ message: 'Producto eliminado correctamente' });
     } catch (error) {
       console.error('Error al eliminar el producto:', error);
+          if (error.code === 'ER_ROW_IS_REFERENCED_2') {
+            return res.status(400).json({ message: 'No se puede eliminar un producto que está incluido en un pedido.' });
+        }
         res.status(500).json({ message: 'Error al eliminar el producto', error: error.message });
     }
 });
