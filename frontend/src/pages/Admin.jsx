@@ -4,12 +4,12 @@ import { useProducts } from "../context/ProductsContext";
 import { useUsers } from "../context/UserContext"; // Importar el nuevo hook
 
 export default function Admin() {
-  // Lógica de Productos (sin cambios)
+  // Lógica de Productos
   const { productos, addProduct, deleteProduct, updateProduct } = useProducts();
   const [imagen, setImagen] = useState(null);
   const [imagenPreview, setImagenPreview] = useState(null);
 
-  // Lógica de Usuarios (nueva)
+  // Lógica de Usuarios
   const { usuarios, createUsuario, updateUsuario, deleteUsuario } = useUsers();
   const [nuevoUsuario, setNuevoUsuario] = useState({ email: '', password: '', rol: 'cliente' });
 
@@ -96,7 +96,7 @@ export default function Admin() {
           <hr />
           <h4 className="mb-3">Alta de Productos</h4>
           <form onSubmit={handleAgregarProducto} className="mb-4">
-            {/* ... Formulario de productos (sin cambios) ... */}
+            {/* ... Formulario de productos ... */}
             <input className="form-control mb-2" type="text" name="nuevoNombre" placeholder="Nombre" required />
             <input className="form-control mb-2" type="number" name="nuevoPrecio" placeholder="Precio" step="0.01" required />
             <input className="form-control mb-2" type="number" name="nuevoStock" placeholder="Stock" required />
@@ -124,7 +124,7 @@ export default function Admin() {
         </div>
       </section>
 
-      {/* SECCIÓN DE USUARIOS (NUEVA) */}
+      {/* SECCIÓN DE USUARIOS*/}
       <section className="novedades seccion-clara pt-0">
         <div className="container text-center">
           <h2 className="seccion-titulo mt-5">Gestión de Usuarios</h2><hr />
